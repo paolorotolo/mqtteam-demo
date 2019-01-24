@@ -31,6 +31,9 @@ dependencies {
 
     // Required for MQTT
 
+    // Firebase
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+
     // MQTT
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
@@ -41,3 +44,4 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 }
+apply plugin: 'com.google.gms.google-services'
