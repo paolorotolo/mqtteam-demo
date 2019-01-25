@@ -3,6 +3,5 @@
     <string-array name="aree">
         <item>area1</item>
         <item>area2</item>
-        <item>area3</item>
     </string-array>
 </resources>
