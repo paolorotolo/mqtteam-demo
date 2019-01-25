@@ -5,6 +5,15 @@ public class Muletto {
     String name;
     String lastPosition;
     String rssi;
+    boolean busy;
+
+    public boolean getBusy() {
+        return busy;
+    }
+
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
 
     public String getId() {
         return id;

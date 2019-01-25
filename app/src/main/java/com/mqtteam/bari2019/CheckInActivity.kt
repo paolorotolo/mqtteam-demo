@@ -19,7 +19,7 @@ class CheckInActivity : AppCompatActivity() {
                 type = typeET.text.toString()
             }
 
-            FirebaseRepository.addPacco(pacco)
+            // FirebaseRepository.addPacco(pacco)
         }
     }
 }
