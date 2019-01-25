@@ -1,12 +1,12 @@
 package com.mqtteam.bari2019.data;
 
 public class Pacco {
-    String name;
-    String desc;
-    int type;
-    long registred;
-    long entered;
-    String currentPosition;
-    String currentGate;
-    long exited;
+    public String name;
+    public String desc;
+    public int type;
+    public long registred;
+    public long entered;
+    public String currentPosition;
+    public String currentGate;
+    public long exited;
 }
