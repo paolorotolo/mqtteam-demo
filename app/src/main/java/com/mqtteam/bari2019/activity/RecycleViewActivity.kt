@@ -22,7 +22,6 @@ class RecycleViewActivity : AppCompatActivity() {
 
     var currentArea = -1
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycle_view)
@@ -39,6 +38,7 @@ class RecycleViewActivity : AppCompatActivity() {
                     val list = ArrayList<Muletto>()
                     data.children.forEach {
                         val value = it.getValue(Muletto::class.java)
+
                         if (value != null) {
                             list.add(value)
                         }
@@ -84,11 +84,12 @@ class RecycleViewActivity : AppCompatActivity() {
             } else {
                 holder.view.disponibilita.text = "Libero"
                 holder.view.mulettoCard.setBackgroundColor(Color.parseColor("#8bc34a"))
+                holder.view.rssid.text = muletto.rssi
 
                 holder.view.mulettoCard.setOnClickListener {
                     FirebaseRepository.updateDisponibilityMuletto(muletto.id, true)
                     val intent = Intent(holder.view.context, ClearMuletto::class.java)
-                    intent.putExtra("uid", muletto.id)
+                    intent.putExtra("id", muletto.id)
                     holder.view.context.startActivity(intent)
                 }
             }
