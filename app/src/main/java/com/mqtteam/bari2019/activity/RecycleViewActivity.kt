@@ -1,5 +1,6 @@
 package com.mqtteam.bari2019.activity
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -82,10 +83,18 @@ class RecycleViewActivity : AppCompatActivity() {
             holder.view.area.text = muletto.lastPosition
             if (muletto.busy) {
                 holder.view.disponibilita.text = "Occupato"
+                holder.view.disponibilitaBackground.setBackgroundColor(Color.parseColor("#f44336"))
             } else {
                 holder.view.disponibilita.text = "Libero"
+                holder.view.disponibilitaBackground.setBackgroundColor(Color.parseColor("#8bc34a"))
+
+                holder.view.mulettoCard.setOnClickListener {
+                    FirebaseRepository.updateDisponibilityMuletto(muletto.id, true)
+                }
             }
             holder.view.distanza.text = muletto.rssi.toString()
+
+
         }
 
         // Return the size of your dataset (invoked by the layout manager)

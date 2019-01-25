@@ -39,6 +39,10 @@ class FirebaseRepository {
 
         }*/
 
+        fun updateDisponibilityMuletto(id: String, isBusy: Boolean){
+            FirebaseDatabase.getInstance().getReference("/muletti").child(id).child("busy").setValue(isBusy)
+        }
+
         fun updateMuletto(id: String, position: String, rssi: String) {
             FirebaseDatabase.getInstance().getReference("/muletti").child(id).child("lastPosition").setValue(position)
             FirebaseDatabase.getInstance().getReference("/muletti").child(id).child("rssi").setValue(rssi)
