@@ -2,8 +2,11 @@ package com.mqtteam.bari2019.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.mqtteam.bari2019.R
 import com.mqtteam.bari2019.helper.MqttHelper
+import com.mqtteam.bari2019.repository.FirebaseRepository
+import kotlinx.android.synthetic.main.activity_hub.*
 import org.eclipse.paho.client.mqttv3.IMqttActionListener
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener
 import org.eclipse.paho.client.mqttv3.IMqttToken
@@ -22,7 +25,9 @@ class HubActivity : AppCompatActivity() {
      * Called each time a new message is available on MQTT
      */
     fun onNewMessageAvailable(topic: String, message: String){
-        toast(message)
+        val messageList: List<String> = message.split(",")
+
+        FirebaseRepository.updateMuletto(messageList[0], messageList[1], messageList[2])
     }
 
     /**

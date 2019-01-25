@@ -39,6 +39,11 @@ class FirebaseRepository {
 
         }*/
 
+        fun updateMuletto(id: String, position: String, rssi: String) {
+            FirebaseDatabase.getInstance().getReference("/muletti").child(id).child("lastPosition").setValue(position)
+            FirebaseDatabase.getInstance().getReference("/muletti").child(id).child("rssi").setValue(rssi)
+        }
+
         fun getMuletti(listener: ValueEventListener) {
             FirebaseDatabase.getInstance().getReference("/muletti").addValueEventListener(listener)
         }
