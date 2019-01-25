@@ -19,8 +19,5 @@ class MainActivity : AppCompatActivity() {
         localizeButton.setOnClickListener {
             startActivity(Intent(this, RecycleViewActivity::class.java))
         }
-
-
-
     }
 }

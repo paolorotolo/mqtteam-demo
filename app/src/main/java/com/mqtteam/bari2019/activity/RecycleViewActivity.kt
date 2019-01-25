@@ -1,13 +1,12 @@
 package com.mqtteam.bari2019.activity
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -27,8 +26,6 @@ class RecycleViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycle_view)
-
-
 
         searchButton.setOnClickListener {
             currentArea = spinner.selectedItemId.toInt()
@@ -83,13 +80,16 @@ class RecycleViewActivity : AppCompatActivity() {
             holder.view.area.text = muletto.lastPosition
             if (muletto.busy) {
                 holder.view.disponibilita.text = "Occupato"
-                holder.view.disponibilitaBackground.setBackgroundColor(Color.parseColor("#f44336"))
+                holder.view.mulettoCard.setBackgroundColor(Color.parseColor("#f44336"))
             } else {
                 holder.view.disponibilita.text = "Libero"
-                holder.view.disponibilitaBackground.setBackgroundColor(Color.parseColor("#8bc34a"))
+                holder.view.mulettoCard.setBackgroundColor(Color.parseColor("#8bc34a"))
 
                 holder.view.mulettoCard.setOnClickListener {
                     FirebaseRepository.updateDisponibilityMuletto(muletto.id, true)
+                    val intent = Intent(holder.view.context, ClearMuletto::class.java)
+                    intent.putExtra("uid", muletto.id)
+                    holder.view.context.startActivity(intent)
                 }
             }
             holder.view.distanza.text = muletto.rssi.toString()
