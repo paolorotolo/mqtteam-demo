@@ -6,15 +6,46 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".CheckInActivity">
-    <android.support.design.widget.TextInputLayout
-            android:id="@+id/text_input_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:layout_marginTop="32dp">
 
         <EditText
-                android:id="@+id/editText"
+                android:layout_marginTop="16dp"
+                android:id="@+id/nameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="UserName"/>
-    </android.support.design.widget.TextInputLayout>
+                android:hint="Nome del pacco"/>
+        <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/descET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrizione"/>
+        <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/typeET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="tipologia"/>
+        <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/idCarrelloET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="id carrello"/>
+
+        <Button android:layout_width="match_parent"
+                android:text="Conferma"
+                android:layout_marginTop="32dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/confirmmButton"
+                android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+
+
 </LinearLayout>
