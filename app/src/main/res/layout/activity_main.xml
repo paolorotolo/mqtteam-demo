@@ -7,20 +7,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:context=".MainActivity">
+        tools:context=".activity.MainActivity">
     <Button
 
-            android:text="GESTIONALE"
+            android:text="HUB"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/button"
+            android:layout_height="wrap_content" android:id="@+id/hubButton"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
     <Button
-            android:text="CARRELLO"
+            android:text="LOCALIZZAZIONE MULETTI"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/button2"
-            app:layout_constraintTop_toBottomOf="@id/button" app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content" android:id="@+id/localizeButton"
+            app:layout_constraintTop_toBottomOf="@id/hubButton" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

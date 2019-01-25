@@ -1,21 +1,21 @@
-package com.mqtteam.bari2019
+package com.mqtteam.bari2019.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mqtteam.bari2019.R
 import com.mqtteam.bari2019.helper.MqttHelper
-import kotlinx.android.synthetic.main.activity_main.*
-import org.eclipse.paho.client.mqttv3.*
+import org.eclipse.paho.client.mqttv3.IMqttActionListener
+import org.eclipse.paho.client.mqttv3.IMqttMessageListener
+import org.eclipse.paho.client.mqttv3.IMqttToken
 import org.jetbrains.anko.toast
 
-class MainActivity : AppCompatActivity() {
+class HubActivity : AppCompatActivity() {
     lateinit var mqttHelper: MqttHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_hub)
         initializeMqtt()
-
     }
 
     /**
@@ -31,11 +31,11 @@ class MainActivity : AppCompatActivity() {
      * ********************
      */
 
-    private fun initializeMqtt(){
+    private fun initializeMqtt() {
         mqttHelper = MqttHelper(this, "tcp://broker.shiftr.io", "AndroidClient")
         mqttHelper.setUsername("vault-tec-Bari-Hackaton")
         mqttHelper.setPassword("securepwd")
-        mqttHelper.connect(object: IMqttActionListener{
+        mqttHelper.connect(object : IMqttActionListener {
             override fun onSuccess(asyncActionToken: IMqttToken?) {
                 mqttHelper.setListener(
                     IMqttMessageListener { topic, message ->
@@ -51,6 +51,5 @@ class MainActivity : AppCompatActivity() {
                 toast(exception?.message.toString())
             }
         })
-
     }
 }

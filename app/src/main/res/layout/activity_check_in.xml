@@ -36,13 +36,15 @@
                 android:id="@+id/idCarrelloET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="carrello1"
                 android:hint="id carrello"/>
 
         <Button android:layout_width="match_parent"
                 android:text="Conferma"
                 android:layout_marginTop="32dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/confirmmButton"
+                android:id="@+id/confirmButton"
                 android:background="@color/colorPrimary"/>
     </LinearLayout>
 
