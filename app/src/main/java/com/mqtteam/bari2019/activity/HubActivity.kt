@@ -22,7 +22,7 @@ class HubActivity : AppCompatActivity() {
      * Called each time a new message is available on MQTT
      */
     fun onNewMessageAvailable(topic: String, message: String){
-
+        toast(message)
     }
 
     /**
@@ -44,7 +44,7 @@ class HubActivity : AppCompatActivity() {
                         }
                     }
                 )
-                mqttHelper.subscribeTopic("test")
+                mqttHelper.subscribeTopic("lettura")
             }
 
             override fun onFailure(asyncActionToken: IMqttToken?, exception: Throwable?) {

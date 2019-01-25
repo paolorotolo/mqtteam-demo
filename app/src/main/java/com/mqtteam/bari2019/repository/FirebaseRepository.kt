@@ -39,28 +39,8 @@ class FirebaseRepository {
 
         }*/
 
-        fun getMuletti(): MutableLiveData<List<Muletto>> {
-            val liveData = MutableLiveData<List<Muletto>>()
-
-            FirebaseDatabase.getInstance().getReference("/muletti").addValueEventListener(
-                object : ValueEventListener{
-                    override fun onCancelled(error: DatabaseError) {}
-
-                    override fun onDataChange(data: DataSnapshot) {
-                        val list = ArrayList<Muletto>()
-                        data.children.forEach {
-                            val value = it.getValue(Muletto::class.java)
-                            if (value != null) {
-                                list.add(value)
-                            }
-                        }
-
-                        liveData.value = list
-                    }
-                }
-            )
-
-            return liveData
+        fun getMuletti(listener: ValueEventListener) {
+            FirebaseDatabase.getInstance().getReference("/muletti").addValueEventListener(listener)
         }
 
     }
