@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="Nome"
+                android:layout_width="100dp"
+                android:layout_marginRight="18dp"
+                android:layout_height="wrap_content" android:id="@+id/textView"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/nome"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="Area"
+                android:layout_width="100dp"
+                android:layout_marginRight="18dp"
+                android:layout_height="wrap_content" android:id="@+id/textView3"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/area"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="Distanza"
+                android:layout_width="100dp"
+                android:layout_marginRight="18dp"
+                android:layout_height="wrap_content" android:id="@+id/textView5"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/distanza"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="Disponibilità"
+                android:layout_width="100dp"
+                android:layout_marginRight="18dp"
+                android:layout_height="wrap_content" android:id="@+id/textView7"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/disponibilita"/>
+    </LinearLayout>
+</LinearLayout>
