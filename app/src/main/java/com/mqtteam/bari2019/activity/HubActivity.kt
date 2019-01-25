@@ -26,7 +26,6 @@ class HubActivity : AppCompatActivity() {
      */
     fun onNewMessageAvailable(topic: String, message: String){
         val messageList: List<String> = message.split(",")
-
         FirebaseRepository.updateMuletto(messageList[0], messageList[1], messageList[2])
     }
 
