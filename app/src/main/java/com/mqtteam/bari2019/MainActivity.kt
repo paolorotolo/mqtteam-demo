@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
      * Called each time a new message is available on MQTT
      */
     fun onNewMessageAvailable(topic: String, message: String){
-        mqttString.text = message
+
     }
 
     /**
