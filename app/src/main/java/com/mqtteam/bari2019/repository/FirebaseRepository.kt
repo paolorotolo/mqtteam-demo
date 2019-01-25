@@ -12,7 +12,7 @@ import com.mqtteam.bari2019.data.Pacco
 
 class FirebaseRepository {
     companion object {
-
+/*
         fun addCarrelloMock() {
             // item1
             // item2
@@ -30,50 +30,38 @@ class FirebaseRepository {
                 lastPosition = "2"
                 rssi = "100"
             }
-            val muletto3 = Muletto().apply {
-                id = "item3"
-                name = "Muletto 3"
-                lastPosition = "3"
-                rssi = "100"
-            }
 
             val reference1 = FirebaseDatabase.getInstance().getReference("/muletti").child(muletto1.id)
             val reference2 = FirebaseDatabase.getInstance().getReference("/muletti").child(muletto2.id)
-            val reference3 = FirebaseDatabase.getInstance().getReference("/muletti").child(muletto3.id)
             reference1.setValue(muletto1)
             reference2.setValue(muletto2)
-            reference3.setValue(muletto3)
 
 
-        }
+        }*/
 
-        fun addPacco(newPacco: Pacco){
-            val reference = FirebaseDatabase.getInstance().getReference("/pacco").child(newPacco.registred.toString())
-            reference.setValue(newPacco)
-        }
+        fun getMuletti(): MutableLiveData<List<Muletto>> {
+            val liveData = MutableLiveData<List<Muletto>>()
 
-        fun getPacchi(): MutableLiveData<List<Pacco?>> {
-            val liveData = MutableLiveData<List<Pacco?>>()
+            FirebaseDatabase.getInstance().getReference("/muletti").addValueEventListener(
+                object : ValueEventListener{
+                    override fun onCancelled(error: DatabaseError) {}
 
-            val reference = FirebaseDatabase.getInstance().getReference("/pacco")
+                    override fun onDataChange(data: DataSnapshot) {
+                        val list = ArrayList<Muletto>()
+                        data.children.forEach {
+                            val value = it.getValue(Muletto::class.java)
+                            if (value != null) {
+                                list.add(value)
+                            }
+                        }
 
-            reference.addValueEventListener(object : ValueEventListener{
-                override fun onCancelled(p0: DatabaseError) {
-
-                }
-
-                override fun onDataChange(data: DataSnapshot) {
-                    val list = ArrayList<Pacco?>()
-
-                    data.children.forEach {
-                        list.add(it.getValue(Pacco::class.java))
+                        liveData.value = list
                     }
-
-                    liveData.value = list
                 }
-            })
+            )
 
             return liveData
         }
+
     }
 }

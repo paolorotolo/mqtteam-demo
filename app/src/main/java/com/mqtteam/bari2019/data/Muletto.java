@@ -4,7 +4,7 @@ public class Muletto {
     String id;
     String name;
     String lastPosition;
-    String RSSI;
+    String rssi;
 
     public String getId() {
         return id;
@@ -30,11 +30,11 @@ public class Muletto {
         this.lastPosition = lastPosition;
     }
 
-    public String getRSSI() {
-        return RSSI;
+    public String getRssi() {
+        return rssi;
     }
 
-    public void setRSSI(String RSSI) {
-        this.RSSI = RSSI;
+    public void setRssi(String rssi) {
+        this.rssi = rssi;
     }
 }
